@@ -1,0 +1,91 @@
+h1, h2, h3, h4, h5 ,h6{
+        color: #ffffff;
+        font-family: "Aleo-Regular", arial;
+        letter-spacing: 1px;
+    }
+
+    h1              { font-size: 2em;}
+    h2              { font-size: 1.5em;}
+    h3              { font-size: 1.17em;}
+    h5              { font-size: .83em;}
+    h6              { font-size: .75em;}
+    h1, h2, h3, h4,
+    h5, h6          { font-weight: bolder }
+
+    .wrapper{
+        width: 790px;
+        margin: 0 auto;
+    }
+
+    .content{
+        position: absolute;
+        display: block;
+        overflow: hidden;
+        z-index: 9999;
+        text-align: center;
+        width: 100%;
+    }
+
+    .content H1{
+        color: #fff;
+        font-size: 56px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .content p{
+        color: #fff;
+        font-family: "Aleo-Regular", arial;
+        font-size: 16px;
+        letter-spacing: 1px;
+        line-height: 28px;
+    }
+
+    .content p.description{
+        margin-top: 0px;
+        text-align: center;
+        display:inline;
+    }
+    .inline{
+        display:inline;
+    }
+    .hei{
+        height: 200px;
+    }
+    .hei1{
+        height: 350px;
+    }
+    .img{
+        margin-top: 10%;
+    }
+    .weadetail{
+        margin-top: 10%;
+    }
+
+    .hole{
+        width: 51px;
+        height: 51px;
+        margin-left: 88px;
+        border-radius: 50%;
+        border: 1px solid #99FFFF ;
+    }
+    .hole:after{
+        color: cyan;
+        position: absolute;
+        margin-top: 15px;
+        margin-left: -7px;
+    }
+    .change:after{
+        content: attr(data-content);
+    }
+    #today{
+        color: white;
+        margin-left: 10px;
+    }
+    .outmap{
+        border: 3px solid cyan;
+        margin: 30px 30px 30px 30px;
+        height: 500px;
+    }
