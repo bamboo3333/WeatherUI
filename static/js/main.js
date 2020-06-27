@@ -7,7 +7,7 @@ var weather = ["晴","晴","晴","晴","多云","晴间多云","晴间多云","�
     var highTemper=[];
     var lowTemper = [];
     var humiArr = [];
-
+    var lng,lat;
     $(function () {
         initDraw("");
                 //获取当前位置信息
@@ -18,14 +18,17 @@ var weather = ["晴","晴","晴","晴","多云","晴间多云","晴间多云","�
             contentType: 'application/json',
             success: function (data) {
                 $("#address").html(data.data.address);
+                lng = data.data.point_x;
+                lat = data.data.point_y;
                 city = data.data.city;
+                initMap();
             }
         });
 
     });
     window.onload=function () {
         initMenu("");
-        initMap();
+
 
     };
     function initMenu(address){
@@ -64,12 +67,11 @@ var weather = ["晴","晴","晴","晴","多云","晴间多云","晴间多云","�
 
     }
     function initMap() {
-      var lng=114,lat=33;
       var point = new BMap.Point(lng,lat);
       window.geoc = new BMap.Geocoder();
       var map =  new BMap.Map("map");
       map.centerAndZoom(city,12);
-      var myIcon= new BMap.Icon("./static/img/fox.gif",new BMap.Size(200,157));
+      var myIcon= new BMap.Icon("../static/img/fox.gif",new BMap.Size(200,157));
       var marker = new BMap.Marker(point,{icon:myIcon})
         map.addOverlay(marker);
         map.centerAndZoom(point,12);
@@ -108,7 +110,6 @@ var weather = ["晴","晴","晴","晴","多云","晴间多云","晴间多云","�
             dataType: 'json',
             contentType: 'application/json',
             success: function (data) {
-                console.log(data);
                 var info = data.data;
                 var len = info.length;
                 for (var i=0;i<len;i++){
@@ -116,7 +117,6 @@ var weather = ["晴","晴","晴","晴","多云","晴间多云","晴间多云","�
                     highTemper.push(parseInt(info[i].high));
                     lowTemper.push(parseInt(info[i].low));
                     humiArr.push(parseInt(info[i].humidity));
-                    console.log(dateArray[i]);
                 }
                 draw1();
             }
@@ -124,11 +124,7 @@ var weather = ["晴","晴","晴","晴","多云","晴间多云","晴间多云","�
 
     }
     function draw1() {
-
-
         //获取湿度和温度变化
-
-        console.log(dateArray);
         var dom1 = document.getElementById("zhe1");
         var myChart1 = echarts.init(dom1);
         option1 = null;
